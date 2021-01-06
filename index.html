@@ -3,10 +3,49 @@
     <head>
         <script src="angular.min.js"></script>
         <script src="app.js"></script>
+
+        <style>
+            .emptyMessage {
+                font-weight: bold;
+                color: red;
+                font-size: 1.2em;
+            }
+        
+            li {
+                margin-bottom: 7px;
+                font-size: 1.2em;
+            }
+        
+            li > button {
+                margin-left: 6px;
+            }
+        
+            </style>    
+
     </head>
 
-<body>
-    <h1>Module 2 Work</h1>
+<body ng-app="ShoppingListCheckOff">
+    <div ng-controller="ToBuyController as toBuyList">
+        <ol>
+            <li ng-repeat="item in toBuyList.items">
+                Buy {{item.quantity}} {{item.name}}
+                <button ng-click="toBuyList.buyItem($index)">Buy Item</button>
+            </li>
+        </ol>
+
+        <div ng-if="toBuyList.items.length == 0" class="emptyMessage">Everything is bought!</div>
+
+    </div>
+
+    <div ng-controller="AlreadyBoughtController as alreadyBoughtList">
+
+        <ol>
+            <li ng-repeat="item in alreadyBoughtList.items">Bought {{item.quantity}} {{item.name}}</li>
+        </ol>
+        <div ng-if="alreadyBoughtList.items.length == 0" class="emptyMessage">Nothing bought yet.</div>
+
+    </div>
+
 </body>    
     
 </html>
