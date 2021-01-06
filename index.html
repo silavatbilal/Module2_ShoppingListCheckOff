@@ -9,6 +9,14 @@
                 font-weight: bold;
                 color: red;
                 font-size: 1.2em;
+                padding: 20px;
+            }
+
+            .completeMessage{
+                font-weight: bold;
+                color: green;
+                font-size: 1.2em;
+                padding: 20px;
             }
         
             li {
@@ -33,9 +41,10 @@
             </li>
         </ol>
 
-        <div ng-if="toBuyList.items.length == 0" class="emptyMessage">Everything is bought!</div>
+        <div ng-if="toBuyList.items.length == 0" class="completeMessage">Everything is bought!</div>
 
     </div>
+    
 
     <div ng-controller="AlreadyBoughtController as alreadyBoughtList">
 
